@@ -1,0 +1,26 @@
+
+spring:
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/event?serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: root
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    open-in-view: false
+    hibernate:
+#      ddl-auto: create
+      ddl-auto: none
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:ddl.sql
+      data-locations: classpath:dml.sql
+logging:
+  level:
+    org.hibernate.type.descriptor.sql: trace
